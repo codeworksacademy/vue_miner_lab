@@ -11,7 +11,7 @@ export class Upgrade {
     return Math.floor(this.price * (this.quantity * 1.2))
   }
 
-  get totalPower() {
+  get totalBonus() {
     return this.quantity * this.bonus
   }
 }

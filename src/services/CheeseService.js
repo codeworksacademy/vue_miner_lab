@@ -1,8 +1,8 @@
 import { AppState } from "@/AppState.js"
 
 class CheeseService {
-  mineCheese() {
-    AppState.cheese++
+  increaseCheese(cheeseAmount) {
+    AppState.cheese += cheeseAmount
   }
 }
 
