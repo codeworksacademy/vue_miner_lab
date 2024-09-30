@@ -1,0 +1,23 @@
+@import "./_variables.scss";
+@import "./_utilities.scss";
+@import "./loaders.scss";
+
+body {
+  overscroll-behavior: none;
+  background-image: url(/public/img/nebula.svg);
+  background-size: cover;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex-grow: 1;
+}
+
+a {
+  text-decoration: none;
+}
