@@ -4,6 +4,8 @@ import { AppState } from './AppState.js';
 import { cheeseService } from './services/CheeseService.js';
 
 const cheese = computed(() => AppState.cheese)
+const clickUpgrades = computed(() => AppState.clickUpgrades)
+const autoUpgrades = computed(() => AppState.autoUpgrades)
 
 function mineCheese() {
   cheeseService.mineCheese()
@@ -26,7 +28,7 @@ function mineCheese() {
       </section>
     </div>
   </main>
-  <footer>
+  <footer class="p-3">
     <div class="container-fluid">
       <section class="row">
         <div class="col-12">
@@ -47,6 +49,38 @@ function mineCheese() {
           </div>
         </div>
       </section>
+      <div class="row bg-warning rounded">
+        <div class="col-md-6">
+          <div class="m-2 p-2 rounded bg-secondary d-flex justify-content-between">
+            <div>
+              <span class="bungee-font">Click Upgrades</span>
+              <div v-for="upgrade in clickUpgrades" :key="upgrade.name" class="mb-2 d-flex gap-1">
+                <button class="btn btn-primary">
+                  {{ upgrade.currentPrice }}
+                  <i class="mdi mdi-cheese"></i>
+                </button>
+                <div>
+                  <span class="d-block text-capitalize">{{ upgrade.name }}</span>
+                  <span class="d-block">+{{ upgrade.bonus }}</span>
+                </div>
+              </div>
+            </div>
+            <div>
+              <span class="bungee-font">Automatic Upgrades</span>
+              <div v-for="upgrade in autoUpgrades" :key="upgrade.name" class="mb-2 d-flex gap-1">
+                <button class="btn btn-danger">
+                  {{ upgrade.currentPrice }}
+                  <i class="mdi mdi-cheese"></i>
+                </button>
+                <div>
+                  <span class="d-block text-capitalize">{{ upgrade.name }}</span>
+                  <span class="d-block">+{{ upgrade.bonus }} / 3s</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </footer>
 </template>
