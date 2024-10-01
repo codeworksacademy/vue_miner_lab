@@ -164,6 +164,10 @@ h1 {
   text-shadow: 0 4px var(--bs-warning);
 }
 
+img {
+  user-select: none;
+}
+
 .bungee-font {
   font-family: "Bungee", sans-serif;
   font-weight: 400;
