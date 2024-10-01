@@ -74,7 +74,7 @@ function collectAuto() {
       </section>
       <div class="row bg-warning rounded">
         <div class="col-md-6">
-          <div class="m-2 p-2 rounded bg-secondary d-flex justify-content-between">
+          <div class="m-2 py-2 px-3 rounded bg-secondary d-flex justify-content-between">
             <div>
               <span class="bungee-font fs-3">Click Upgrades</span>
               <div v-for="upgrade in clickUpgrades" :key="upgrade.name" class="mb-2 d-flex gap-1">
@@ -106,7 +106,7 @@ function collectAuto() {
           </div>
         </div>
         <div class="col-md-6">
-          <div class="m-2 p-2 rounded bg-secondary d-flex justify-content-between">
+          <div class="m-2 py-2 px-3 rounded bg-secondary d-flex justify-content-between">
             <div>
               <span class="bungee-font fs-3">Click Stats</span>
               <div v-for="upgrade in clickUpgrades" :key="upgrade.name"
