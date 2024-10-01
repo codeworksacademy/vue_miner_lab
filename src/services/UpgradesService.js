@@ -2,14 +2,13 @@ import { AppState } from "@/AppState.js";
 import { Upgrade } from "@/models/Upgrade.js";
 
 class UpgradesService {
-  /**
-   * @param {Upgrade} upgrade
-   */
+  /*** @param {Upgrade} upgrade */
   purchaseUpgrade(upgrade) {
-    if (AppState.cheese < upgrade.currentPrice) return
+    if (AppState.cheese < upgrade.price) return
 
-    AppState.cheese -= upgrade.currentPrice
+    AppState.cheese -= upgrade.price
     upgrade.quantity++
+    upgrade.price *= (upgrade.quantity * 1.2)
   }
 }
 

@@ -5,12 +5,6 @@ export class Upgrade {
     this.bonus = data.bonus
     this.quantity = 0
   }
-
-  get currentPrice() {
-    if (this.quantity == 0) return this.price
-    return Math.floor(this.price * (this.quantity * 1.2))
-  }
-
   get totalBonus() {
     return this.quantity * this.bonus
   }

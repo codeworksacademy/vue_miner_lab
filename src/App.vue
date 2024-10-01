@@ -78,9 +78,9 @@ function purchaseUpgrade(upgrade) {
             <div>
               <span class="bungee-font fs-3">Click Upgrades</span>
               <div v-for="upgrade in clickUpgrades" :key="upgrade.name" class="mb-2 d-flex gap-1">
-                <button @click="purchaseUpgrade(upgrade)" :disabled="upgrade.currentPrice > cheese"
+                <button @click="purchaseUpgrade(upgrade)" :disabled="upgrade.price > cheese"
                   class="btn btn-primary text-light fs-4">
-                  {{ upgrade.currentPrice }}
+                  {{ upgrade.price }}
                   <i class="mdi mdi-cheese"></i>
                 </button>
                 <div>
@@ -92,9 +92,9 @@ function purchaseUpgrade(upgrade) {
             <div>
               <span class="bungee-font fs-3">Automatic Upgrades</span>
               <div v-for="upgrade in autoUpgrades" :key="upgrade.name" class="mb-2 d-flex gap-1">
-                <button @click="purchaseUpgrade(upgrade)" :disabled="upgrade.currentPrice > cheese"
+                <button @click="purchaseUpgrade(upgrade)" :disabled="upgrade.price > cheese"
                   class="btn btn-danger text-light fs-4">
-                  {{ upgrade.currentPrice }}
+                  {{ upgrade.price }}
                   <i class="mdi mdi-cheese"></i>
                 </button>
                 <div>
