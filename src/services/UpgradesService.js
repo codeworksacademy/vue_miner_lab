@@ -8,7 +8,7 @@ class UpgradesService {
 
     AppState.cheese -= upgrade.price
     upgrade.quantity++
-    upgrade.price *= (upgrade.quantity * 1.2)
+    upgrade.price = Math.floor(upgrade.price * (upgrade.quantity * 1.2))
   }
 }
 

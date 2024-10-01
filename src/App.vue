@@ -7,11 +7,13 @@ import { upgradesService } from './services/UpgradesService.js';
 const cheese = computed(() => AppState.cheese)
 const clickUpgrades = computed(() => AppState.clickUpgrades)
 const autoUpgrades = computed(() => AppState.autoUpgrades)
+
 const clickBonus = computed(() => {
   let total = 1
   clickUpgrades.value.forEach(upgrade => total += upgrade.totalBonus)
   return total
 })
+
 const autoBonus = computed(() => {
   let total = 0
   autoUpgrades.value.forEach(upgrade => total += upgrade.totalBonus)
@@ -22,16 +24,14 @@ onMounted(() => {
   setInterval(collectAuto, 3000)
 })
 
-function collectAuto() {
-  cheeseService.increaseCheese(autoBonus.value)
-}
-
 function mineCheese() {
   cheeseService.increaseCheese(clickBonus.value)
 }
-
 function purchaseUpgrade(upgrade) {
   upgradesService.purchaseUpgrade(upgrade)
+}
+function collectAuto() {
+  cheeseService.increaseCheese(autoBonus.value)
 }
 </script>
 
@@ -112,12 +112,18 @@ function purchaseUpgrade(upgrade) {
               <div v-for="upgrade in clickUpgrades" :key="upgrade.name"
                 class="mb-2 d-flex justify-content-between gap-1 text-light">
                 <div class="d-flex align-items-center gap-2">
-                  <span class="rounded border border-light border-1 fs-3 px-2">{{ upgrade.quantity }}</span>
-                  <span class="text-capitalize">{{ upgrade.name + (upgrade.quantity == 1 ? '' : 's') }}</span>
+                  <span class="rounded border border-light border-1 fs-3 px-2">
+                    {{ upgrade.quantity }}
+                  </span>
+                  <span class="text-capitalize">
+                    {{ upgrade.name + (upgrade.quantity == 1 ? '' : 's') }}
+                  </span>
                 </div>
                 <div>
                   <i class="mdi mdi-arrow-right-thick fs-2"></i>
-                  <span class="rounded border border-light border-1 fs-3 px-2">{{ upgrade.totalBonus }}</span>
+                  <span class="rounded border border-light border-1 fs-3 px-2">
+                    {{ upgrade.totalBonus }}
+                  </span>
                 </div>
               </div>
             </div>
@@ -127,11 +133,15 @@ function purchaseUpgrade(upgrade) {
                 class="mb-2 d-flex justify-content-between gap-1 text-light">
                 <div class="d-flex align-items-center gap-2">
                   <span class="rounded border border-light border-1 fs-3 px-2">{{ upgrade.quantity }}</span>
-                  <span class="text-capitalize">{{ upgrade.name + (upgrade.quantity == 1 ? '' : 's') }}</span>
+                  <span class="text-capitalize">
+                    {{ upgrade.name + (upgrade.quantity == 1 ? '' : 's') }}
+                  </span>
                 </div>
                 <div>
                   <i class="mdi mdi-timer fs-2"></i>
-                  <span class="rounded border border-light border-1 fs-3 px-2">{{ upgrade.totalBonus }}</span>
+                  <span class="rounded border border-light border-1 fs-3 px-2">
+                    {{ upgrade.totalBonus }}
+                  </span>
                 </div>
               </div>
             </div>
